@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import {
   IonApp, IonHeader, IonContent, IonToolbar, IonTitle,
   IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput,
-  IonAlert
+  IonAlert, IonCard, IonCardContent
 } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -80,30 +80,42 @@ const App: React.FC = () => {
         <IonContent className="ion-padding">
           <IonGrid>
             <IonRow>
-              <IonCol>
-                <InputControl selectedValue={calcUnits} onSelectValue={selectCalcUnitHandler} />
+              <IonCol size-sm="8" offset-sm="2" size-md="6" offset-md="3" className="ion-no-padding">
+                <IonCard className="ion-no-margin">
+                  <IonCardContent>
+                    <IonGrid className="ion-no-padding">
+                      <IonRow>
+                        <IonCol>
+                          <InputControl selectedValue={calcUnits} onSelectValue={selectCalcUnitHandler} />
+                        </IonCol>
+                      </IonRow>
+                      <IonRow>
+                        <IonCol>
+                          <IonItem>
+                            <IonLabel position="floating">Your Height ({calcUnits === 'mkg' ? 'meters' : 'feet'})</IonLabel>
+                            <IonInput type="number" ref={heightInputRef}></IonInput>
+                          </IonItem>
+                        </IonCol>
+                      </IonRow>
+                      <IonRow>
+                        <IonCol>
+                          <IonItem>
+                            <IonLabel position="floating">Your Weight ({calcUnits === 'mkg' ? 'kg' : 'lbs'})</IonLabel>
+                            <IonInput type="number" ref={weightInputRef}></IonInput>
+                          </IonItem>
+                        </IonCol>
+                      </IonRow>
+                      <BmiControls onCalculate={calculateBmi} onReset={resetInputs} />
+                    </IonGrid>
+                  </IonCardContent>
+                </IonCard>
               </IonCol>
             </IonRow>
             <IonRow>
-              <IonCol>
-                <IonItem>
-                  <IonLabel position="floating">Your Height ({calcUnits === 'mkg' ? 'meters' : 'feet'})</IonLabel>
-                  <IonInput type="number" ref={heightInputRef}></IonInput>
-                </IonItem>
+              <IonCol size-sm="8" offset-sm="2" size-md="6" offset-md="3" className="ion-no-padding">
+                {calculatedBmi && (<BmiResult bmiResult={calculatedBmi} />)}
               </IonCol>
             </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonItem>
-                  <IonLabel position="floating">Your Weight ({calcUnits === 'mkg' ? 'kg' : 'lbs'})</IonLabel>
-                  <IonInput type="number" ref={weightInputRef}></IonInput>
-                </IonItem>
-              </IonCol>
-            </IonRow>
-            <BmiControls onCalculate={calculateBmi} onReset={resetInputs} />
-            {calculatedBmi && (
-              <BmiResult bmiResult={calculatedBmi} />
-            )}
           </IonGrid>
         </IonContent>
       </IonApp>

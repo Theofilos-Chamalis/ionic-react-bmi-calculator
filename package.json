@@ -30,6 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "dev": "ionic serve",
     "android_build": "ionic cap run android",
     "ios_build": "ionic cap run ios",
     "capacitor_build": "ionic cap build",
