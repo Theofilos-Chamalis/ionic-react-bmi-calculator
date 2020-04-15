@@ -31,7 +31,8 @@
     "eject": "react-scripts eject",
     "android_build": "ionic cap run android",
     "ios_build": "ionic cap run android",
-    "capacitor_build": "ionic cap build"
+    "capacitor_build": "ionic cap build",
+    "capacitor_add_integration": "ionic integrations enable capacitor"
   },
   "eslintConfig": {
     "extends": "react-app"
