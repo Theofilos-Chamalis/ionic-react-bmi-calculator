@@ -70,7 +70,7 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
-      <IonAlert isOpen={!!error} message={error} buttons={[{ text: 'Okay', handler: clearError }]} />
+      <IonAlert mode='ios' isOpen={!!error} message={error} buttons={[{ text: 'Okay', handler: clearError }]} />
       <IonApp>
         <IonHeader>
           <IonToolbar color="primary">
