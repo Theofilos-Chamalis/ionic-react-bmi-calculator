@@ -1,5 +1,5 @@
 {
-  "name": "ionic-react",
+  "name": "bmi-calculator",
   "integrations": {
     "capacitor": {}
   },
